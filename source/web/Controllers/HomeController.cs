@@ -20,6 +20,7 @@ namespace tapas_app.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Hit on hc");
             return View();
         }
 
