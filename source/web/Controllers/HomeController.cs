@@ -22,21 +22,27 @@ namespace tapas_app.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("Hit on hc");
+            var path=Path.Combine("Views", "Home", "Index.cshtml");
             _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Index.cshtml");
-            return View($"Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Index.cshtml");
+            _logger.LogInformation($"Path2:{path}");
+            return View(path);
         }
 
         public IActionResult Privacy()
         {
+            var path = Path.Combine("Views", "Home", "Privacy.cshtml");
             _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
-            return View($"Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
+            _logger.LogInformation($"Path2:{path}");
+            return View(path);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            var path = Path.Combine("Views", "Shared", "Error.cshtml");
             _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
-            return View($"Path:Views{Path.DirectorySeparatorChar}Shared{Path.DirectorySeparatorChar}Error.cshtml",new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _logger.LogInformation($"Path2:{path}");
+            return View(path, new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
