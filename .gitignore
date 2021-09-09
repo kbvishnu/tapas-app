@@ -3,3 +3,6 @@
 *.cache
 obj
 *.txt
+bin
+*.dll
+*.pdb
