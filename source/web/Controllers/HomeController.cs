@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using tapas_app.Models;
@@ -21,18 +22,21 @@ namespace tapas_app.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("Hit on hc");
-            return View();
+            _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Index.cshtml");
+            return View($"Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Index.cshtml");
         }
 
         public IActionResult Privacy()
         {
-            return View();
+            _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
+            return View($"Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _logger.LogInformation($"Path:Views{Path.DirectorySeparatorChar}Home{Path.DirectorySeparatorChar}Privacy.cshtml");
+            return View($"Path:Views{Path.DirectorySeparatorChar}Shared{Path.DirectorySeparatorChar}Error.cshtml",new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
