@@ -2,7 +2,7 @@ FROM microsoft/dotnet:3.1-sdk AS build-env
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
-COPY *.csproj ./
+COPY /source/web/*.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
